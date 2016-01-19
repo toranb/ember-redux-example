@@ -5,14 +5,21 @@ export default Ember.Component.extend({
         this._super(...arguments);
         this.store.subscribe(() => {
             this.notifyPropertyChange('low');
+            this.notifyPropertyChange('high');
         });
     },
     low: Ember.computed(function() {
-        return this.store.getState();
+        return this.store.getState().low;
+    }),
+    high: Ember.computed(function() {
+        return this.store.getState().high;
     }),
     actions: {
         up() {
             this.store.dispatch({type: 'UP'});
+        },
+        down() {
+            this.store.dispatch({type: 'DOWN'});
         }
     }
 });

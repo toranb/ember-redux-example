@@ -1,16 +1,23 @@
 import Ember from 'ember';
 import Redux from 'npm:redux';
 
-var { createStore } = Redux;
+var { createStore, combineReducers } = Redux;
 
-var reducer = ((state=0, action) => {
+var low = ((state=0, action) => {
     if(action.type === 'UP') {
         return state + 1;
     }
     return state;
 });
 
-var store = createStore(reducer);
+var high = ((state=9, action) => {
+    if(action.type === 'DOWN') {
+        return state - 1;
+    }
+    return state;
+});
+
+var store = createStore(combineReducers({low: low, high: high}));
 
 export default Ember.Service.extend({
     getState() {
