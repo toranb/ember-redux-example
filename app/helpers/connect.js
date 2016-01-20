@@ -4,7 +4,7 @@ const { computed, defineProperty } = Ember;
 
 //TODO: actually use the wrapped component to pull in actions
 var connect = function(mapStateToComputed, mapDispatchToActions) {
-    return function wrapWithConnect(WrappedComponent) {
+    return function wrapWithConnect(WrappedComponent) { // jshint ignore:line
         var mapState = function(state) {
             var props = [];
             Object.keys(mapStateToComputed(state)).forEach(function(key) {
@@ -20,11 +20,12 @@ var connect = function(mapStateToComputed, mapDispatchToActions) {
             return actions;
         };
         return Ember.Component.extend({
+            store: Ember.inject.service('redux'),
             init() {
                 this._super(...arguments);
                 var model = this;
                 model['actions'] = {}; //TODO: prevent loss of actions
-                var store = this.store;
+                var store = this.get('store');
                 var props = mapState(store.getState());
                 var dispatch = mapDispatch(store.dispatch);
                 props.forEach(function(name) {
