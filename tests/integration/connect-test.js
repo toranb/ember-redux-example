@@ -27,3 +27,11 @@ test('should render parent component with one state and child component with ano
     assert.equal($parent.text(), 2);
     assert.equal($child.text(), 7);
 });
+
+test('the component should truly be extended meaning actions map over as you would expect', function(assert) {
+    this.render(hbs`{{user-list}}`);
+    let $random = this.$('.random-state');
+    assert.equal($random.text(), '');
+    this.$('.btn-random').trigger('click');
+    assert.equal($random.text(), 'blue');
+});

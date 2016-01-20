@@ -17,7 +17,14 @@ var high = ((state=9, action) => { // jshint ignore:line
     return state;
 });
 
-var store = createStore(combineReducers({low: low, high: high}));
+var all = ((state=3, action) => { // jshint ignore:line
+    if(action.type === 'MORE') {
+        return state + 1;
+    }
+    return state;
+});
+
+var store = createStore(combineReducers({low: low, high: high, all: all}));
 
 export default Ember.Service.extend({
     getState() {
@@ -27,6 +34,6 @@ export default Ember.Service.extend({
         store.dispatch(action);
     },
     subscribe(func) {
-        store.subscribe(func);
+        return store.subscribe(func);
     }
 });
