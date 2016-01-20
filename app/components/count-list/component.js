@@ -15,7 +15,7 @@ var dispatchToActions = (dispatch) => {
     };
 };
 
-var UserListComponent = Ember.Component.extend({
+var CountListComponent = Ember.Component.extend({
     actions: {
         random() {
             this.set('color', 'blue');
@@ -24,4 +24,4 @@ var UserListComponent = Ember.Component.extend({
     }
 });
 
-export default connect(stateToComputed, dispatchToActions)(UserListComponent);
+export default connect(stateToComputed, dispatchToActions)(CountListComponent);

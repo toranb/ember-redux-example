@@ -41,7 +41,7 @@ test('should subscribe and unsubscribe when components are created/destroyed', f
         assert.equal(subscribed, 2);
         assert.equal(unsubscribed, 1);
     });
-    click('.users-link');
+    click('.counts-link');
     andThen(() => {
         assert.equal(currentURL(), '/');
         assert.equal(subscribed, 3);
@@ -55,6 +55,7 @@ test('components without state should not subscribe or unsubscribe', function(as
         assert.equal(currentURL(), '/empty');
         assert.equal(subscribed, 0);
         assert.equal(unsubscribed, 0);
+        assert.equal(find('.empty-state').text(), 'empty');
     });
     click('.dashboard-link');
     andThen(() => {
@@ -62,7 +63,7 @@ test('components without state should not subscribe or unsubscribe', function(as
         assert.equal(subscribed, 1);
         assert.equal(unsubscribed, 0);
     });
-    click('.users-link');
+    click('.counts-link');
     andThen(() => {
         assert.equal(currentURL(), '/');
         assert.equal(subscribed, 2);

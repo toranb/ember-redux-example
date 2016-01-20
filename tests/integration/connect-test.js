@@ -1,7 +1,7 @@
 import hbs from 'htmlbars-inline-precompile';
 import { moduleForComponent, test } from 'ember-qunit';
 
-moduleForComponent('user-list', 'integration: connect test', {
+moduleForComponent('count-list', 'integration: connect test', {
     integration: true,
     setup() {
         this.inject.service('redux');
@@ -9,7 +9,7 @@ moduleForComponent('user-list', 'integration: connect test', {
 });
 
 test('should render parent component with one state and child component with another', function(assert) {
-    this.render(hbs`{{user-list}}`);
+    this.render(hbs`{{count-list}}`);
     let $parent = this.$('.parent-state');
     let $child = this.$('.child-state');
     assert.equal($parent.text(), 0);
@@ -29,7 +29,7 @@ test('should render parent component with one state and child component with ano
 });
 
 test('the component should truly be extended meaning actions map over as you would expect', function(assert) {
-    this.render(hbs`{{user-list}}`);
+    this.render(hbs`{{count-list}}`);
     let $random = this.$('.random-state');
     assert.equal($random.text(), '');
     this.$('.btn-random').trigger('click');
