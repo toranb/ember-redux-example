@@ -1,53 +1,17 @@
 # Ember-redux-example
 
-This README outlines the details of collaborating on this Ember application.
-A short introduction of this app could easily go here.
+This project is a complete spike at the moment - learning how redux works with ember
 
-## Prerequisites
+//not production ready
 
-You will need the following things properly installed on your computer.
+## Todos
 
-* [Git](http://git-scm.com/)
-* [Node.js](http://nodejs.org/) (with NPM)
-* [Bower](http://bower.io/)
-* [Ember CLI](http://www.ember-cli.com/)
-* [PhantomJS](http://phantomjs.org/)
+A few items on my "how does this work" list ...
 
-## Installation
-
-* `git clone <repository-url>` this repository
-* change into the new directory
-* `npm install`
-* `bower install`
-
-## Running / Development
-
-* `ember server`
-* Visit your app at [http://localhost:4200](http://localhost:4200).
-
-### Code Generators
-
-Make use of the many generators for code, try `ember help generate` for more details
-
-### Running Tests
-
-* `ember test`
-* `ember test --server`
-
-### Building
-
-* `ember build` (development)
-* `ember build --environment production` (production)
-
-### Deploying
-
-Specify what it takes to deploy your app.
-
-## Further Reading / Useful Links
-
-* [ember.js](http://emberjs.com/)
-* [ember-cli](http://www.ember-cli.com/)
-* Development Browser Extensions
-  * [ember inspector for chrome](https://chrome.google.com/webstore/detail/ember-inspector/bmdblncegkenkacieihfhpjfppoconhi)
-  * [ember inspector for firefox](https://addons.mozilla.org/en-US/firefox/addon/ember-inspector/)
-
+* what role does a route play now that redux actions return async data?
+* how will the ember route and redux work together (so state is tracked in the url)
+* what does a pure async example look like?
+* what is a boring forms/over data example look like with inputs shown in both master/detail
+* what does the deep copy old state/ return new work with relationships?
+* how easy is dirty tracking and rollback now?
+* share what I learn here w/ the ember community :)
