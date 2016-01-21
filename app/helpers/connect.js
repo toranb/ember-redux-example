@@ -24,7 +24,6 @@ var connect = function(mapStateToComputed, mapDispatchToActions) {
         return WrappedComponent.extend({
             store: Ember.inject.service('redux'),
             init() {
-                this._super(...arguments);
                 var component = this;
                 component['actions'] = Ember.$.extend({}, component['actions']);
                 var store = this.get('store');
@@ -45,6 +44,7 @@ var connect = function(mapStateToComputed, mapDispatchToActions) {
                         });
                     });
                 }
+                this._super(...arguments);
             },
             willDestroy() {
                 if (this.unsubscribe) {

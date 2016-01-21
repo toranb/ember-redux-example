@@ -7,6 +7,8 @@ module.exports = function(defaults) {
     // Add options here
   });
 
+  app.import('bower_components/fauxjax-toranb/dist/fauxjax.min.js');
+
   // Use `app.import` to add additional libraries to the generated
   // output files.
   //

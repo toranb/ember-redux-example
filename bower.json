@@ -10,6 +10,7 @@
     "ember-resolver": "~0.1.20",
     "jquery": "~2.1.4",
     "loader.js": "ember-cli/loader.js#3.4.0",
+    "fauxjax-toranb": "1.9.0",
     "qunit": "~1.20.0"
   }
 }
