@@ -28,6 +28,27 @@
               content: [{id: 1, name: 'Toran'}, {id: 2, name: 'Jarrod'}, {id: 3, name: 'Brandon'}]
           }
       });
+      $.fauxjax.new({
+        request: {url: "/api/users/1", method: "GET"},
+          response: {
+              status: 200,
+              content: {id: 1, name: 'Toran'}
+          }
+      });
+      $.fauxjax.new({
+        request: {url: "/api/users/2", method: "GET"},
+          response: {
+              status: 200,
+              content: {id: 2, name: 'Jarrod'}
+          }
+      });
+      $.fauxjax.new({
+        request: {url: "/api/users/3", method: "GET"},
+          response: {
+              status: 200,
+              content: {id: 3, name: 'Brandon'}
+          }
+      });
     </script>
 
     {{content-for 'body-footer'}}
