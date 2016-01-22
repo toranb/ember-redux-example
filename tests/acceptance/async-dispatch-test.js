@@ -19,9 +19,9 @@ test('should fetch async data and display after xhr has resolved (super is calle
         assert.equal(currentURL(), '/');
     });
     ajax('/api/users', 'GET', 200, [{id: 1, name: 'one'}, {id: 2, name: 'two'}]);
-    click('.users-link');
+    click('.fetch-link');
     andThen(() => {
-        assert.equal(currentURL(), '/users');
+        assert.equal(currentURL(), '/fetch');
         assert.equal(find('.user-name').length, 2);
     });
     click('.counts-link');
@@ -29,9 +29,9 @@ test('should fetch async data and display after xhr has resolved (super is calle
         assert.equal(currentURL(), '/');
     });
     ajax('/api/users', 'GET', 200, [{id: 1, name: 'one'}, {id: 3, name: 'three'}]);
-    click('.users-link');
+    click('.fetch-link');
     andThen(() => {
-        assert.equal(currentURL(), '/users');
+        assert.equal(currentURL(), '/fetch');
         assert.equal(find('.user-name').length, 3);
     });
 });

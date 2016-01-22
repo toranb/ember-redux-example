@@ -10,6 +10,7 @@ Router.map(function() {
   this.route('dashboard', { path: '/dashboard' });
   this.route('empty', { path: '/empty' });
   this.route('users', { path: '/users' });
+  this.route('fetch', { path: '/fetch' });
 });
 
 export default Router;
