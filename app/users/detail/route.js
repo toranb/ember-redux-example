@@ -7,14 +7,6 @@ var model = (dispatch, params) => {
     return ajax(`/api/users/${user_id}`, 'GET').then(response => dispatch({type: 'DESERIALIZE_USER', response: response}));
 };
 
-var UsersDetailRoute = Ember.Route.extend({
-    actions: {
-        willTransition() {
-            //need to figure this out and tdd it
-            var store = this.get('store');
-            store.dispatch({type: 'DISCONNECT_USER_DETAIL'});
-        }
-    }
-});
+var UsersDetailRoute = Ember.Route.extend();
 
 export default route(model)(UsersDetailRoute);

@@ -3,24 +3,10 @@ import connect from 'ember-redux-example/helpers/connect';
 
 var stateToComputed = (state) => {
     return {
-        users: state.users.all,
-        selected: state.users.selected
+        users: state.users.all
     };
 };
 
-var dispatchToActions = (dispatch) => {
-    return {
-        save: () => dispatch({type: 'SAVE_USER'})
-    };
-};
+var UserListComponent = Ember.Component.extend();
 
-var UserListComponent = Ember.Component.extend({
-    user: Ember.computed('users.[]', 'selected', function() {
-        const selected = this.get('selected');
-        return this.get('users').filter(function(u) {
-            return u.id === selected;
-        }).objectAt(0);
-    })
-});
-
-export default connect(stateToComputed, dispatchToActions)(UserListComponent);
+export default connect(stateToComputed)(UserListComponent);

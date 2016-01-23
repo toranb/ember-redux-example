@@ -12,12 +12,5 @@ export default ((state=initialState, action) => { // jshint ignore:line
     if (action.type === 'DESERIALIZE_USER') {
         return {all: uniq(state.all, action.response), selected: action.response.id};
     }
-    if (action.type === 'SAVE_USER') {
-        console.log('do some ajax here in the near future');
-        return {all: state.all, selected: state.selected};
-    }
-    if (action.type === 'DISCONNECT_USER_DETAIL') {
-        return {all: state.all, selected: null};
-    }
     return state;
 });
