@@ -3,18 +3,10 @@ import connect from 'ember-redux-example/helpers/connect';
 
 var stateToComputed = (state) => {
     return {
-        users: state.users.all,
-        selected: state.users.selected
+        user: state.users.user
     };
 };
 
-var UserDetailComponent = Ember.Component.extend({
-    user: Ember.computed('users.[]', 'selected', function() {
-        const selected = this.get('selected');
-        return this.get('users').filter(function(u) {
-            return u.id === selected;
-        }).objectAt(0);
-    })
-});
+var UserDetailComponent = Ember.Component.extend();
 
 export default connect(stateToComputed)(UserDetailComponent);
