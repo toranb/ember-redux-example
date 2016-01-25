@@ -3,7 +3,7 @@ import connect from 'ember-redux-example/helpers/connect';
 
 var stateToComputed = (state) => {
     return {
-        user: state.users.user
+        user: state.users.selected
     };
 };
 
