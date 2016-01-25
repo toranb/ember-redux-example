@@ -9,7 +9,7 @@ This project is a complete spike at the moment - learning how redux works with e
 A few items on my "how does this work" list ...
 
 * ~~how will redux and the ember router work together?~~
-* how to deep copy an array/object with redux (in the reducer)?
+* ~~how to deep copy an array/object with redux (in the reducer)?~~
 * relationships (and how to keep them in sync as new "state" is created)
 * dirty tracking w/ rollback (and save?)
 * deserialize workflow / functions
