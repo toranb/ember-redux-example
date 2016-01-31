@@ -32,7 +32,7 @@ var connect = function(mapStateToComputed, mapDispatchToActions) {
                 props.forEach(function(name) {
                     defineProperty(component, name, computed(function() {
                         return finalMapStateToComputed(store.getState())[name];
-                    }).property());
+                    }).property().readOnly());
                 });
                 dispatch.forEach(function(action) {
                     component['actions'][action] = finalMapDispatchToActions(store.dispatch)[action];
