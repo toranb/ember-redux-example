@@ -4,7 +4,6 @@ import startApp from 'ember-redux-example/tests/helpers/start-app';
 
 var application;
 
-//TODO: the state tree is not destroyed between tests (enables hot reloading but harmful here)
 module('Acceptance | async dispatch test', {
     beforeEach() {
         application = startApp();
@@ -89,5 +88,55 @@ test('should fetch async data and display after xhr has resolved (super is calle
     andThen(() => {
         assert.equal(currentURL(), '/fetch');
         assert.equal(find('.user-name').length, 3);
+    });
+});
+
+test('basic time travel supports rollback', function(assert) {
+    var rollbacks;
+    visit('/');
+    click('.btn-up');
+    andThen(() => {
+        rollbacks = find('.btn-rollback').length;
+        assert.equal(find('.parent-state').text(), '1');
+    });
+    click('.btn-up');
+    andThen(() => {
+        assert.equal(find('.btn-rollback').length, rollbacks + 1);
+        assert.equal(find('.parent-state').text(), '2');
+    });
+    click('.btn-up');
+    andThen(() => {
+        assert.equal(find('.btn-rollback').length, rollbacks + 2);
+        assert.equal(find('.parent-state').text(), '3');
+    });
+    click('.btn-up');
+    andThen(() => {
+        assert.equal(find('.btn-rollback').length, rollbacks + 3);
+        assert.equal(find('.parent-state').text(), '4');
+    });
+    click('.btn-up');
+    andThen(() => {
+        assert.equal(find('.btn-rollback').length, rollbacks + 4);
+        assert.equal(find('.parent-state').text(), '5');
+    });
+    click('.btn-up');
+    andThen(() => {
+        assert.equal(find('.btn-rollback').length, rollbacks + 5);
+        assert.equal(find('.parent-state').text(), '6');
+    });
+    click('.btn-rollback:last');
+    andThen(() => {
+        assert.equal(find('.btn-rollback').length, rollbacks + 4);
+        assert.equal(find('.parent-state').text(), '5');
+    });
+    click('.btn-rollback:last');
+    andThen(() => {
+        assert.equal(find('.btn-rollback').length, rollbacks + 3);
+        assert.equal(find('.parent-state').text(), '4');
+    });
+    click('.btn-rollback:last');
+    andThen(() => {
+        assert.equal(find('.btn-rollback').length, rollbacks + 2);
+        assert.equal(find('.parent-state').text(), '3');
     });
 });
