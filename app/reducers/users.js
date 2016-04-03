@@ -5,7 +5,7 @@ const initialState = {
     selected: null
 };
 
-export default ((state=initialState, action) => { // jshint ignore:line
+export default ((state, action) => {
     if (action.type === 'DESERIALIZE_USERS') {
         return Object.assign({}, state, {
             all: uniq(state.all, action.response)
@@ -17,5 +17,5 @@ export default ((state=initialState, action) => { // jshint ignore:line
             selected: action.response
         });
     }
-    return state;
+    return state || initialState;
 });
