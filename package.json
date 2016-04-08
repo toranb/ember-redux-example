@@ -36,7 +36,7 @@
     "ember-load-initializers": "^0.5.0",
     "ember-resolver": "^2.0.3",
     "loader.js": "^4.0.0",
-    "ember-redux": "1.0.0",
+    "ember-redux": "git://github.com/toranb/ember-redux.git#master",
     "ember-browserify": "^1.0.2"
   }
 }
