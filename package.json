@@ -37,6 +37,6 @@
     "ember-resolver": "^2.0.3",
     "loader.js": "^4.0.0",
     "ember-redux": "^1.1.0",
-    "ember-browserify": "^1.0.2"
+    "ember-browserify": "^1.1.8"
   }
 }
