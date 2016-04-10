@@ -1,5 +1,7 @@
 import thunk from 'npm:redux-thunk';
 
+var resolved = thunk.default ? thunk.default : thunk;
+
 var warnz = function thunkMiddleware({ dispatch, getState }) {
   console.warn('wait!');
   return next => action => {
@@ -11,4 +13,4 @@ var warnz = function thunkMiddleware({ dispatch, getState }) {
   };
 };
 
-export default [thunk, warnz];
+export default [resolved, warnz];
