@@ -2,7 +2,7 @@ import thunk from 'npm:redux-thunk';
 
 var resolved = thunk.default ? thunk.default : thunk;
 
-var warnz = function thunkMiddleware({ dispatch, getState }) {
+var warnz = function({dispatch, getState}) {
   console.warn('wait!');
   return next => action => {
     if (typeof action === 'function') {
