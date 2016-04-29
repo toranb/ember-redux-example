@@ -17,9 +17,9 @@ A few items on my "how does this work" list ...
 * relationship by example (user/ role selectbox widget)
 * how to load multiple pieces of state for a "connected" component (like static role data)?
 * pure async master + detail
-* how to "throw out the store" and restart in tests?
+* ~~how to "throw out the store" and restart in tests?~~
 * hot reload w/ ember?
-* time travel debugging component for the demo?
+* ~~time travel debugging component for the demo?~~
 * testing examples w/ freeze to show something is immutable ?
 * validation (using another addon that relies on ember computed)
 * share what I learn here w/ the ember community :)
